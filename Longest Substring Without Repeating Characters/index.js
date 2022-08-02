@@ -14,6 +14,7 @@ var lengthOfLongestSubstring = function (s) {
 
 		sub += c;
 
+		// check special characteres to escape
 		var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
 		if (format.test(c)) {
@@ -23,6 +24,7 @@ var lengthOfLongestSubstring = function (s) {
 		var exp = new RegExp(c, 'g');
 
 		if ((sub.match(exp) || []).length > 1) {
+			// return to initial position + 1
 			i = i - (sub.length - 2);
 			sub = "";
 			continue;
